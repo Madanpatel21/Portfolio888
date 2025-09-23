@@ -1,0 +1,148 @@
+/* --- Global Styles and Color Variables --- */
+:root {
+    /* Define your color palette */
+    --navy-blue: #00004d;
+    --midnight-blue: #191970;
+    --ghost-white: #F8F8FF;
+    --light-gray: #E0E0E0;
+    --gold: #FFD700;
+    --warm-gold: #FFCC00;
+}
+
+#nd{
+    text-align: left;
+    float: left;
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--navy-blue); /* Sets the main background to navy blue */
+    color: var(--ghost-white); /* Sets the default text color to off-white */
+    margin: 10px;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: rgba(0, 0, 0, 0.3); /* A semi-transparent dark background for the header */
+    padding: 1rem;
+    position: fixed; /* Makes the header sticky at the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--gold); /* Your accent color for nav links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--warm-gold);
+}
+
+/* --- Main Content Layout --- */
+main {
+    padding-top: 5rem; /* Add padding to prevent content from being hidden behind the fixed header */
+}
+
+section {
+    padding: 2rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: var(--warm-gold); /* Your accent color for main headings */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* --- Profile Photo Styling --- */
+.profile-photo {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid var(--gold); /* Gold border for the photo */
+    float: left;
+    border-radius: 5%;
+    margin-right: 20px;
+}
+
+/* Clearfix to prevent text from wrapping weirdly around the floated image */
+#about::after {
+    text-align: center;
+    display: table;
+    clear: both;
+}
+
+/* --- Project Cards --- */
+.project-card {
+    background-color: var(--midnight-blue); /* A slightly darker blue for project cards */
+    border: 1px solid var(--navy-blue);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3, .project-card h4 {
+    color: var(--warm-gold); /* Gold color for project titles */
+    margin-top: 0;
+}
+
+.project-card a {
+    color: var(--ghost-white);
+    background-color: var(--gold); /* Gold background for buttons/links */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: var(--warm-gold);
+}
+
+/* --- Skills List --- */
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#skills li {
+    background-color: var(--midnight-blue);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 1px solid var(--gold); /* A gold border for skills */
+}
+
+/* --- Contact & Footer --- */
+#contact a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+footer {
+    background-color: var(--midnight-blue);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
