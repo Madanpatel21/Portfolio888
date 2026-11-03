@@ -29,8 +29,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: engineering-universe/package-lock.json
       - name: Install dependencies
         run: npm install
       - name: TypeScript check
@@ -42,7 +40,8 @@ jobs:
       - name: Start preview server
         run: |
           npm run preview -- --host 127.0.0.1 > /tmp/vite-preview.log 2>&1 &
-          npx wait-on http://127.0.0.1:4173
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:4173 >/dev/null && break; sleep 2; done
+          curl -fsS http://127.0.0.1:4173 >/dev/null
       - name: Capture desktop preview
         run: |
           mkdir -p artifacts
