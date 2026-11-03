@@ -1,0 +1,60 @@
+name: Engineering Universe CI and Preview
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "engineering-universe/**"
+      - ".github/workflows/engineering-universe-ci.yml"
+  push:
+    branches: ["feature/engineering-universe-portfolio"]
+    paths:
+      - "engineering-universe/**"
+      - ".github/workflows/engineering-universe-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: engineering-universe
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: engineering-universe/package-lock.json
+      - name: Install dependencies
+        run: npm install
+      - name: TypeScript check
+        run: npm run typecheck
+      - name: Production build
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start preview server
+        run: |
+          npm run preview -- --host 127.0.0.1 > /tmp/vite-preview.log 2>&1 &
+          npx wait-on http://127.0.0.1:4173
+      - name: Capture desktop preview
+        run: |
+          mkdir -p artifacts
+          npx playwright screenshot --browser chromium --full-page --viewport-size "1440,1100" http://127.0.0.1:4173 artifacts/engineering-universe-desktop.png
+      - name: Capture mobile preview
+        run: |
+          npx playwright screenshot --browser chromium --device "iPhone 13" --full-page http://127.0.0.1:4173 artifacts/engineering-universe-mobile.png
+      - name: Upload preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: engineering-universe-preview
+          path: engineering-universe/artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
