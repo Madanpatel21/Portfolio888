@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Atom, Command, Github, Layers3, Menu, Moon, Orbit, Search, Sun, X, Zap } from "lucide-react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Atom, Command, Github, Menu, Moon, Orbit, Search, Sun, X, Zap } from "lucide-react";
 import { domains, profile, projects } from "./data";
 import UniverseCanvas from "./components/UniverseCanvas";
 import ProjectCard from "./components/ProjectCard";
@@ -99,7 +99,7 @@ export default function App() {
         </div>
         <div className="domain-grid">
           {domains.map((domain) => (
-            <button className="domain-card" key={domain.id} onClick={() => { setActiveDomain(domain.id); scrollTo("projects"); }} style={{ "--domain-color": domain.color } as React.CSSProperties}>
+            <button className="domain-card" key={domain.id} onClick={() => { setActiveDomain(domain.id); scrollTo("projects"); }} style={{ "--domain-color": domain.color } as CSSProperties}>
               <div className="domain-card-head"><span>{domain.number} / DOMAIN</span><span className="domain-symbol">{domain.symbol}</span></div>
               <h3>{domain.name}</h3>
               <p>{domain.description}</p>
