@@ -22,6 +22,13 @@ export default function App() {
     localStorage.setItem("madan-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const selected = domains.find((domain) => domain.id === activeDomain);
+    const root = document.documentElement;
+    root.style.setProperty("--domain-accent", selected?.color ?? "#7896ff");
+    root.style.setProperty("--domain-accent-soft", selected?.color ? selected.color + "24" : "rgba(120,150,255,.14)");
+  }, [activeDomain]);
+
   const filteredProjects = useMemo(() => projects.filter((project) => {
     const matchesDomain = activeDomain === "all" || project.domain === activeDomain;
     const text = `${project.title} ${project.description} ${project.stack.join(" ")}`.toLowerCase();
