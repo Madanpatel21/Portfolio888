@@ -3,6 +3,7 @@ import { ArrowDown, ArrowRight, ArrowUpRight, Atom, Command, Github, Menu, Moon,
 import { domains, profile, projects } from "./data";
 import UniverseCanvas from "./components/UniverseCanvas";
 import ProjectCard from "./components/ProjectCard";
+import ResumeSection from "./components/ResumeSection";
 
 type Theme = "dark" | "light";
 
@@ -44,7 +45,7 @@ export default function App() {
           <span className="brand-name">MADAN PATEL <small>H S / ENGINEERING</small></span>
         </a>
         <nav className={menuOpen ? "main-nav nav-open" : "main-nav"}>
-          {[["Universe", "universe"], ["Domains", "domains"], ["Projects", "projects"], ["About", "about"]].map(([label, id]) => (
+          {[["Universe", "universe"], ["Domains", "domains"], ["Projects", "projects"], ["Resume", "resume"], ["About", "about"]].map(([label, id]) => (
             <button key={id} onClick={() => scrollTo(id)}>{label}</button>
           ))}
           <button className="mobile-contact" onClick={() => scrollTo("contact")}>Let's connect <ArrowUpRight size={15} /></button>
@@ -159,6 +160,8 @@ export default function App() {
         <div className="about-graphic"><div className="about-ring ring-a" /><div className="about-ring ring-b" /><div className="about-core"><Atom size={54} strokeWidth={1} /><span>MP / HS</span></div><span className="graphic-coordinate">12° 18' N / 76° 39' E</span><span className="graphic-caption">SYSTEMS THINKING / ALWAYS ON</span></div>
         <div className="about-copy"><span className="eyebrow">06 / THE ENGINEER</span><h2>Curiosity is the<br /><span className="muted-heading">operating system.</span></h2><p>{profile.summary}</p><p>My foundation in Electrical & Electronics Engineering informs how I approach software: understand the system, respect the constraints, and build for reliability. I enjoy moving between backend architecture, connected devices and the interfaces that make complex systems understandable.</p><div className="about-facts"><div><strong>EEE</strong><span>ENGINEERING FOUNDATION</span></div><div><strong>JAVA</strong><span>BACKEND EXPERIENCE</span></div><div><strong>IoT</strong><span>CONNECTED SYSTEMS</span></div></div><a className="inline-link" href={profile.github} target="_blank" rel="noreferrer">Explore GitHub profile <ArrowUpRight size={16} /></a></div>
       </section>
+
+      <ResumeSection />
 
       <section className="contact-section" id="contact">
         <div className="section-shell contact-inner">
