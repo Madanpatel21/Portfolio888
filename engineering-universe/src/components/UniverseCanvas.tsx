@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Stars, Sparkles, Trail } from "@react-three/drei";
+import { Float, Stars, Sparkles } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { domains } from "../data";
