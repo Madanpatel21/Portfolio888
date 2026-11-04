@@ -21,12 +21,8 @@ export default function ResumeSection() {
           <div className="resume-block">
             <div className="resume-block-title"><BriefcaseBusiness size={18}/><h3>Professional experience</h3></div>
             <article className="resume-entry">
-              <div className="resume-entry-top"><div><h4>Software Engineer — Java Backend Development</h4><p>BerryBloomer Pvt. Ltd. · Remote</p></div><span>2025–2026*</span></div>
+              <div className="resume-entry-top"><div><h4>Software Developer — Java Backend Development</h4><p>BerryBloomer Pvt. Ltd. · Remote</p></div><span>2025–2026*</span></div>
               <p>Software engineering experience focused on Java backend development and web application delivery.</p>
-            </article>
-            <article className="resume-entry">
-              <div className="resume-entry-top"><div><h4>Software Engineer Intern</h4><p>BerryBloomer Pvt. Ltd. · Remote</p></div><span>Jan – Mar 2025</span></div>
-              <p>Internship experience in software engineering and application development.</p>
             </article>
             <article className="resume-entry">
               <div className="resume-entry-top"><div><h4>Full Stack Web Development Intern</h4><p>Varcon's Technologies Pvt. Ltd.</p></div><span>Apr – Jun 2023</span></div>
