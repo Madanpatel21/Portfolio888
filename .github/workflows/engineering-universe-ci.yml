@@ -48,7 +48,7 @@ jobs:
           npx playwright screenshot --browser chromium --full-page --viewport-size "1440,1100" http://127.0.0.1:4173 artifacts/engineering-universe-desktop.png
       - name: Capture mobile preview
         run: |
-          npx playwright screenshot --browser chromium --device "iPhone 13" --full-page http://127.0.0.1:4173 artifacts/engineering-universe-mobile.png
+          npx playwright screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:4173 artifacts/engineering-universe-mobile.png
       - name: Upload preview screenshots
         if: always()
         uses: actions/upload-artifact@v4
