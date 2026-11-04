@@ -333,3 +333,44 @@ main { background:
 @media (prefers-reduced-motion: reduce) {
   .hero-visual { filter: none; }
 }
+
+
+/* BLUE MULTIVERSE DESIGN SYSTEM */
+:root {
+  --accent: #4d9dff;
+  --accent-2: #a8d7ff;
+  --glow: rgba(38, 125, 245, .19);
+  --domain-accent: #4d9dff;
+  --domain-accent-soft: rgba(38, 125, 245, .19);
+}
+:root[data-theme="light"] {
+  --accent: #1765c4;
+  --accent-2: #438fe8;
+  --glow: rgba(42, 115, 210, .12);
+  --domain-accent: #1765c4;
+  --domain-accent-soft: rgba(42, 115, 210, .12);
+}
+main {
+  background:
+    radial-gradient(ellipse at 78% 7%, rgba(30, 111, 220, .16), transparent 34%),
+    radial-gradient(ellipse at 8% 48%, rgba(20, 77, 153, .10), transparent 38%),
+    var(--bg);
+}
+.ambient-one, .ambient-two { background: #287fe8; opacity: .12; }
+.gradient-text {
+  background-image: linear-gradient(105deg, #d7edff 0%, #65b4ff 48%, #2877df 100%);
+}
+:root[data-theme="light"] .gradient-text {
+  background-image: linear-gradient(105deg, #164b91 0%, #176bc8 52%, #438fe8 100%);
+}
+.domain-card { --domain-color: #4d9dff !important; }
+.domain-symbol, .domain-card-bottom svg { color: #70baff; }
+.domain-card:hover { border-color: rgba(77,157,255,.5); }
+.domain-card::before { background: #287fe8; }
+.project-orb::before, .project-orb::after { border-color: rgba(91,169,255,.28); }
+.contact-orbit div:nth-child(2), .contact-orbit div:nth-child(3) { background: #4d9dff; }
+.hero-visual { filter: drop-shadow(0 24px 65px rgba(24,105,220,.24)); }
+.hero-visual::before {
+  background: radial-gradient(ellipse, rgba(39,123,230,.23), transparent 68%);
+}
+@media (prefers-reduced-motion: reduce) { .hero-visual { filter: none; } }
